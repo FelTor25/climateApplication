@@ -1,0 +1,66 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h1 class="text-center mb-4">Aplicación Climática</h1>
+      <form id="form">
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            id="cityInput"
+            class="form-control"
+            placeholder="Ingresa el nombre de la ciudad..."
+            #cityName
+          />
+          <button type="submit" class="btn btn-primary" id="searchBtn">
+            Buscar
+          </button>
+        </div>
+      </form>
+      <div id="weatherInfo"></div>
+      <div id="errorInfo" style="color: red"></div>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Elemento Climatico</th>
+        <th scope="col">Información Climatica</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Temperatura</td>
+        <td>{{ weather?.main?.temp }}</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Longitud</td>
+        <td>{{ weather?.coord?.lon }}</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Latitud</td>
+        <td>{{ weather?.coord?.lat }}</td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>Humedad</td>
+        <td>{{ weather?.main?.humidity }}</td>
+      </tr>
+      <tr>
+        <th scope="row">5</th>
+        <td>Presión</td>
+        <td>{{ weather?.main?.pressure }}</td>
+      </tr>
+      <tr>
+        <th scope="row">5</th>
+        <td>Descripción</td>
+        <td *ngIf="weather && weather?.weather.length > 0">
+          {{ weather?.weather[0]?.description }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
